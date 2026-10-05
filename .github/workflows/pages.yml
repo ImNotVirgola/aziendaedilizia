@@ -22,7 +22,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Scarica la repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Configura Pages
         uses: actions/configure-pages@v5
       - name: Prepara i file del sito
@@ -31,9 +31,10 @@ jobs:
           cp index.html .nojekyll _site/
           cp -R 01-solida 02-moderna 03-premium _site/
       - name: Carica il sito
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: _site
       - name: Pubblica
         id: deployment
         uses: actions/deploy-pages@v4
+
